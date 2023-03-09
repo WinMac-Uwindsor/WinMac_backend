@@ -39,7 +39,7 @@ app.use('/winmac/support', techSupportRoutes);
 
 mongoose.set("strictQuery", false);
 mongoose.connect(
-    "mongodb://0.0.0.0:27017/",
+    "mongodb+srv://spyman2748:aman2748@signin.o5zdp16.mongodb.net/?retryWrites=true&w=majority",
     {
       dbName: "WinHub",
       useNewUrlParser: true,
@@ -49,6 +49,9 @@ mongoose.connect(
       err ? console.log(err) : console.log(
         "Connected to WinHub database")
   );
+
+
+
 
 const PORT = /*process.env.PORT ||*/ 5000;
 app.listen(PORT, () => console.log(`App is running at ${PORT}`))
