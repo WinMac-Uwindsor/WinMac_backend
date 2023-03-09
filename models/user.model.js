@@ -23,6 +23,14 @@ const userSchema = new mongoose.Schema({
         trim:true,
         minlength:8,
     },
+    name: {
+        required:true,
+        type:String
+    },
+    intake: {
+        required:true,
+        type:String
+    },
     eventBooked: {
         type: [{
             type: String,

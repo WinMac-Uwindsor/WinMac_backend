@@ -19,6 +19,11 @@ const event_listSchema = new mongoose.Schema({
         required:true,
         trim:true,
     },
+    limit: {
+        type:Number,
+        required:true,
+        trim:true,
+    },
     time: {
         type:String,
         required:true,

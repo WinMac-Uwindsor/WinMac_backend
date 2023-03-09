@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/user.routes');
 const eventListRoutes = require('./routes/eventList.routes');
 const eventBookRoutes = require('./routes/eventBook.routes');
+const eventAttendRoutes = require('./routes/eventAttend.routes');
+const techSupportRoutes = require('./routes/techSupport.routes');
 
 require('dotenv').config()
 
@@ -30,6 +32,8 @@ app.get('/', (req,res,next) => {
 app.use('/winmac/auth', authRoutes);
 app.use('/winmac/eventList', eventListRoutes);
 app.use('/winmac/eventBook', eventBookRoutes);
+app.use('/winmac/eventAttend', eventAttendRoutes);
+app.use('/winmac/support', techSupportRoutes);
 
 
 
@@ -46,5 +50,5 @@ mongoose.connect(
         "Connected to WinHub database")
   );
 
-const PORT = process.env.PORT || 3000;
+const PORT = /*process.env.PORT ||*/ 5000;
 app.listen(PORT, () => console.log(`App is running at ${PORT}`))
