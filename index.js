@@ -34,6 +34,9 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+app.options('*', cors(corsOptions));
+
+
 // localhost:8080/winmac/auth/
 app.use('/winmac/auth', authRoutes);
 app.use('/winmac/eventList', eventListRoutes);
