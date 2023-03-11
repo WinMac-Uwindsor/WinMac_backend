@@ -30,9 +30,6 @@ app.get('/', (req,res,next) => {
 })
 
 const corsOptions = {
-  origin: 'http://localhost:3000'
-};
-corsOptions = {
   origin: '*',
 };
 
