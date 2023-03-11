@@ -2,6 +2,7 @@ const Post = require("../models/eventList.model");
 
   
   exports.getAllEvents = async (req, res, next) => {
+    console.log(req.body);
     const page = parseInt(req.query.page);
     const limit = parseInt(req.query.limit);
     const skipIndex = (page - 1) * limit;
@@ -23,6 +24,7 @@ const Post = require("../models/eventList.model");
 
   exports.eventDetails = async (req, res) => {
     try {
+      console.log(req.body);
       console.log("Event Detail requested for id: "+req.body.event_id);
       const user = await Post.find({ event_id: req.body.event_id });
       if (user && user.length > 0) {

@@ -9,6 +9,7 @@ Ticket.createUser = async function (username, message) {
 
 exports.addTicket = async (req, res, next) => {
   const { username, message } = req.body;
+  console.log(req.body);
   try {
     // Call the createUser method on the Ticket model
     const savedTicket = await Ticket.createUser(username, message);
@@ -30,6 +31,7 @@ exports.addTicket = async (req, res, next) => {
 //show tickets
 exports.getAllTickets = async (req, res) => {
   try {
+    console.log(req.body);
     const userId = req.body.username;
     const user = await Ticket.find({ username: userId });
     if (user && user.length > 0) {
@@ -49,6 +51,7 @@ exports.getAllTickets = async (req, res) => {
 
 exports.deleteTicket = async (req, res, next) => {
   const { event_id } = req.body;
+  console.log(req.body);
   console.log("ticket id: "+req.body.event_id);
   try {
     const deletedTicket = await Ticket.findByIdAndDelete(req.body.event_id );

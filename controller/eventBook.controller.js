@@ -4,6 +4,7 @@ const Post = require("../models/eventList.model");
 //Booking events
 exports.addEvent = async (req, res) => {
   try {
+      console.log(req.body);
       const existingUser = await User.findOne({ username: req.body.username });
       if (existingUser.eventBooked.includes(req.body.eventBooked)) {
         return res.status(400).send({ error: 'Event already booked' });
@@ -50,7 +51,7 @@ exports.addEvent = async (req, res) => {
 //Canceling events
 exports.removeEvent = async (req, res) => {
   try {
-
+    console.log(req.body);
     const hasEvent = await Post.findOne({ event_id: req.body.eventBooked });
     console.log(hasEvent.limit);
     if(hasEvent){ 
@@ -89,6 +90,7 @@ exports.removeEvent = async (req, res) => {
 //My events
 exports.myEvent = async (req, res) => {
   try {
+    console.log(req.body);
     const userId = req.body.username;
     const user = await User.find({ username: userId });
     if (user && user.length > 0) {

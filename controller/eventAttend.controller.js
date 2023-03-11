@@ -28,6 +28,7 @@ exports.addEvent = async (req, res) => {
 //My events
 exports.myEvent = async (req, res) => {
   try {
+    console.log(req.body);
     const userId = req.body.username;
     const user = await User.find({ username: userId });
     if (user && user.length > 0) {

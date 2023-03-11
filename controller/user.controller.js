@@ -5,6 +5,7 @@ const UserServices = require("../models/user.model");
 exports.loginUser = async (req, res, next) => {
   const { username, password } = req.body;
   console.log(req.body);
+  console.log(req.body);
   try {
     const existingUser = await UserServices.findOne({ username: req.body.username });
     console.log(existingUser);

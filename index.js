@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const authRoutes = require('./routes/user.routes');
 const eventListRoutes = require('./routes/eventList.routes');
 const eventBookRoutes = require('./routes/eventBook.routes');
@@ -22,11 +23,16 @@ app.use((req, res, next) => {
 });
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req,res,next) => {
   res.send(`<h1>WinMac Server </h1>`)  
 })
 
+const corsOptions = {
+  origin: 'http://localhost:3000'
+};
+app.use(cors(corsOptions));
 
 // localhost:8080/winmac/auth/
 app.use('/winmac/auth', authRoutes);
