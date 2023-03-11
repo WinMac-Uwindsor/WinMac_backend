@@ -32,9 +32,10 @@ app.get('/', (req,res,next) => {
 const corsOptions = {
   origin: 'http://localhost:3000'
 };
-app.use(cors(corsOptions));
+const corsOptions = {
+  origin: '*',
+};
 
-//app.options('*', cors(corsOptions));
 
 
 // localhost:8080/winmac/auth/
